@@ -12,6 +12,7 @@ global IP_List
 global results_queue
 results_queue = Queue.Queue()
 
+#open nessary files and ensure we can create file in working directory
 def file_handle():
     try:
         IP_output = open('iplist_output.txt', 'w+')
