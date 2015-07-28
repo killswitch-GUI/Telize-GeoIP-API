@@ -8,8 +8,8 @@ import json
 import requests
 
 global IP_List
-
-
+# Mad scientist test and it truly is faster LOL!
+#open nessary files and ensure we can create file in working directory
 def file_handle():
     try:
         IP_output = open('iplist_output.txt', 'w+')
