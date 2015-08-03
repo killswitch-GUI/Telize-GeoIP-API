@@ -1,11 +1,8 @@
 #!/usr/bin/env python
 import os
 import sys
-import socket
-import argparse
 import threading
 import Queue
-import json
 import requests
 
 global IP_List
@@ -41,7 +38,7 @@ def whois_geo_lookup(ip_queue):
         #Simple whois query for location
         ip = ip_queue.get()
         try:
-            agent = (requests.post(url='http://www.telize.com/geoip/'+ ip.rstrip() +'', timeout=(connect_timeout, read_timeout))).json()
+            agent = (requests.post(url='http://www.telize.com/geoip/'+ ip.rstrip() + '', timeout=(connect_timeout, read_timeout))).json()
             # ex United States
             country = str(agent['country'])
             # State for US
@@ -51,7 +48,7 @@ def whois_geo_lookup(ip_queue):
         except:
             pass
         try:
-            geo_data = {'country':country, 'region':region, 'city':city}
+            geo_data = {'country': country, 'region': region, 'city': city}
             output = str(ip.rstrip())
             output += ' (' + geo_data["country"] + ':' + geo_data["region"] + ':' + geo_data["city"] + ')' + '\n'
             print ("{0} ({1}:{2}:{3})").format(str(ip.strip()), geo_data["country"], geo_data["region"], geo_data["city"])
@@ -87,13 +84,13 @@ def main():
         t = threading.Thread(target=whois_geo_lookup, args=(script_queue,))
         t.daemon = True
         t.start()
-    #Start up
+    # Start up
     print "[*] starting to scan.."
-    #Launches a single thread to output results
+    # Launches a single thread to output results
     t2 = threading.Thread(target=printer, args=(results_queue,))
     t2.daemon = True
     t2.start()
-    #Wait for queue to empty
+    # Wait for queue to empty
     script_queue.join() #blocking
     results_queue.join()
     print "[*] Scan Complete!"
