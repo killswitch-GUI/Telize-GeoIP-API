@@ -1,11 +1,10 @@
-#!/usr/bin/env python
+
 import os
 import sys
 import threading
 import Queue
 import requests
 
-global IP_List
 global results_queue
 results_queue = Queue.Queue()
 
