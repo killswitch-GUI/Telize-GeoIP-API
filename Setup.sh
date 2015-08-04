@@ -39,7 +39,6 @@ func_install_requests(){
   sudo wget http://cybersyndicates.com/wp-content/uploads/2015/08/GeoLite2-Country.mmdb_.zip
   sudo unzip -o GeoLite2-Country.mmdb_.zip
   sudo sudo rm GeoLite2-Country.mmdb_.zip
-  sudo chmod Setup.sh 755
   echo ' [*] all required updated'
 
 }
