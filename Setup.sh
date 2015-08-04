@@ -4,7 +4,6 @@
 #   Kali-Linux
 # Global Variables
 
-
 # Title Function
 func_title(){
   # Clear (For Prettyness)
