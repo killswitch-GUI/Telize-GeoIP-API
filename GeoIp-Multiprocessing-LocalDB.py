@@ -4,6 +4,7 @@ import sys
 import threading
 import multiprocessing
 import geoip2.database
+import Tkinter
 
 import Queue
 import json
