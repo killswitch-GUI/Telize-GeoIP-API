@@ -28,7 +28,7 @@ def file_handle():
             IP_List = f.readlines()
         f.close()
         # Calculate the account of IP's loaded
-        with open("iplist2.txt") as myfile:
+        with open("iplist.txt") as myfile:
             count = sum(1 for line in myfile)
         print '[*] IP List loaded with:', count, " IP's"
     except:
