@@ -24,7 +24,7 @@ def file_handle():
         print "[!] Couldnt create file check permissions"
         sys.exit(0)
     try:
-        with open("iplist2.txt") as f:
+        with open("iplist.txt") as f:
             IP_List = f.readlines()
         f.close()
         # Calculate the account of IP's loaded
